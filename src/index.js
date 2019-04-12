@@ -18,6 +18,9 @@ function* rootSaga() {
 // Create sagaMiddleware
 const sagaMiddleware = createSagaMiddleware();
 
+
+// projectList render - will hold projects from server
+// action SET_PROJECTS sent by saga with payload
 // Used to store projects returned from the server
 const projects = (state = [], action) => {
     switch (action.type) {
@@ -28,6 +31,8 @@ const projects = (state = [], action) => {
     }
 }
 
+// projectList render - will hold tags from server
+// action SET_TAGS sent by saga with payload
 // Used to store the project tags (e.g. 'React', 'jQuery', 'Angular', 'Node.js')
 const tags = (state = [], action) => {
     switch (action.type) {
