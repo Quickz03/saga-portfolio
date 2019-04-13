@@ -43,6 +43,30 @@ const tags = (state = [], action) => {
     }
 }
 
+
+
+// this will get our projects from the server! 
+// and pass them off to the project list reducer to update 
+// the redux store
+function* getProjects(action) {
+    console.log(`Hit the getProjects saga`, action);
+    try {
+        const getResponse = yield axios.get('/project');
+        console.log(`getResponse is: `, getResponse);
+        const action = {
+            type: 'SET_PROJECTS',
+            payload: getResponse.data
+        };
+        yield put(action);
+        console.log('sent off SET_PROJECTS action');
+
+    } catch (error) {
+        console.log(`Couldn't get projects`, error);
+        alert(`Sorry, couldn't get the projects. Try again later`);
+    }
+} //   end getProjects
+
+
 // Create one store that all components can use
 const storeInstance = createStore(
     combineReducers({
