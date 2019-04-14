@@ -5,13 +5,13 @@ const router = express.Router();
 
     router.get('/', (req, res) => {
         // return all categories
-        const queryText = `SELECT "projects"."id", "projects"."name" as "project_name", 
-        "projects"."description" as "project_description", 
-        "projects"."thumbnail" as "project_thumbnail",
-        "projects"."website" as "project_website",
-        "projects"."github" as "project_github",
-        "projects"."date_completed" as "project_date",
-        "tags"."name" as "tags_name"
+        const queryText = `SELECT "projects"."id", "projects"."name" as "name", 
+        "projects"."description" as "description", 
+        "projects"."thumbnail" as "thumbnail",
+        "projects"."website" as "website",
+        "projects"."github" as "github",
+        "projects"."date_completed" as "date",
+        "tags"."name" as "tags"
             FROM "projects"
             JOIN "tags" on "projects"."tag_id"="tags"."id";`;
         pool.query(queryText)
@@ -34,6 +34,41 @@ const router = express.Router();
             })
             .catch((err) => {
                 console.log('Error getting tag data', err);
+                res.sendStatus(500);
+            });
+    });
+
+    router.post('/', (req, res) => {
+        const newProject = req.body;
+        const queryText = `INSERT INTO projects ("name", "description", "thumbnail", "website", "github", "date_completed", "tag_id")
+                            VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+        const queryValues = [
+            newProject.name,
+            newProject.description,
+            newProject.thumbnail,
+            newProject.website,
+            newProject.github,
+            newProject.date_completed,
+            newProject.tag_id,
+        ];
+        pool.query(queryText, queryValues)
+            .then(() => { res.sendStatus(201); })
+            .catch((err) => {
+            console.log('Error completing SELECT project query', err);
+            res.sendStatus(500);
+            });
+    });
+
+
+    router.delete('/:id', (req, res) => {
+        console.log(req.params.id);
+        const queryText = 'DELETE FROM projects WHERE id=$1';
+        pool.query(queryText, [req.params.id])
+            .then(() => {
+                res.sendStatus(200);
+            })
+            .catch((err) => {
+                console.log('Error completing SELECT project query', err);
                 res.sendStatus(500);
             });
     });

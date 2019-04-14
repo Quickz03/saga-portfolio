@@ -1,39 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../App/App.css';
-// import Card from '@material-ui/core/Card';
 
 
 class ProjectListItem extends Component {
-
-    render(){
-        const project = this.props.project;
-        return(
-            // <Card key={project.id} className="Project-description">
-            <>
-                <img src={project.thumbnail} 
-                    alt={project.name} className="thumb" />
-            
-                <div className="description">
-                    <p>
-                        <b>{project.name}</b> 
-                        <a href="{project.github}" >{project.github}</a>
-                        <a href="{project.website}" >{project.website}</a> 
-                        {project.tag_name}
-                    </p>
-                    
-                    <p className="text-description">{project.description}</p>
-                </div>
-            </>
-            // </Card>
+         // Renders the entire app on the DOM
+    render() {
+        return (
+            <div className="ProjectItem">
+               <img src={this.props.project.thumbnail} alt={this.props.project.name} />
+                    <div>
+                        <p>{this.props.project.name}</p>
+                        <p>{this.props.project.description}</p>
+                        <button href={this.props.project.github} target="_blank ">Github</button>
+                        <p>{this.props.project.website}</p>
+                        <p>{this.props.project.tags}</p>
+                    </div>
+            </div>
         );
     }
 }
 
 
 
-const mapReduxStateToProps = (reduxState) => ({
-    reduxState,
-  });
-  
-  export default connect( mapReduxStateToProps )(ProjectListItem);
+export default connect()(ProjectListItem);

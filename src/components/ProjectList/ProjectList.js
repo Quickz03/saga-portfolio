@@ -4,16 +4,18 @@ import '../App/App.css';
 import ProjectListItem from '../ProjectListItem/ProjectListItem';
 
 
+
 class ProjectList extends Component {
 
-    componentDidMount() {
-        this.props.dispatch( {type: 'GET_PROJECTS'} );
-      }
+    //Gets project info from the database to be used to display on DOM
+    componentDidMount = () => {
+        this.props.dispatch({ type: 'GET_PROJECTS' });
+    }
 
-    render(){
-        return(
-            <div className="projectList">
-                <br/>
+    render() {
+
+        return (
+            <div className="App">
                 {this.props.reduxState.projects.map( project =>
                     <ProjectListItem key={project.id} project={project} />
                 )}
@@ -22,9 +24,8 @@ class ProjectList extends Component {
     }
 }
 
-
 const mapReduxStateToProps = (reduxState) => ({
     reduxState,
-  });
-  
-  export default connect( mapReduxStateToProps )(ProjectList);
+});
+
+export default connect(mapReduxStateToProps)(ProjectList);
