@@ -14,7 +14,8 @@ import { takeEvery, put } from 'redux-saga/effects';
 
 // Create the rootSaga generator function
 function* rootSaga() {
-
+    yield takeEvery('GET_PROJECTS', getProjectList);
+    yield takeEvery('GET_TAGS', getTagsList);
 }
 
 // Create sagaMiddleware

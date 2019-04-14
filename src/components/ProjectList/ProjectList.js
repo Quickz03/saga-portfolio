@@ -14,7 +14,6 @@ class ProjectList extends Component {
         return(
             <div className="projectList">
                 <br/>
-
                 {this.props.reduxState.projects.map( project =>
                     <ProjectListItem key={project.id} project={project} />
                 )}
@@ -22,7 +21,6 @@ class ProjectList extends Component {
         );
     }
 }
-
 
 
 const mapReduxStateToProps = (reduxState) => ({
