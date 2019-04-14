@@ -16,6 +16,8 @@ import { takeEvery, put } from 'redux-saga/effects';
 function* rootSaga() {
     yield takeEvery('GET_PROJECTS', getProjectList);
     yield takeEvery('GET_TAGS', getTagsList);
+    yield takeEvery('ADD_PROJECTS', addProject)
+    yield takeEvery('DELETE_PROJECT', deleteProject)
 }
 
 // Create sagaMiddleware
@@ -82,6 +84,33 @@ function* getTagsList(action) {
         alert(`Sorry couldn't get tags. Try again later.`);
     }
 }   // end getTagsList
+
+function* addProject(action) {
+    try {
+        yield axios.post('/portfolio', action.payload)
+        yield put({
+            type: 'GET_PROJECTS'
+        })
+    } catch (error) {
+        console.log(`Couldn't add project`, action.payload, error);
+        alert(`Sorry, couldn't add the project. Try again later`);
+    }
+}
+
+function* deleteProject(action) {
+    console.log('Hit the deleteProject', action);
+    try {
+        // Attempt deleting project, then calling getProjectList
+        yield axios.delete(`/portfolio/${action.payload}`);
+        yield put({
+            type: 'GET_PROJECTS'
+        });
+    } catch (error) {
+        // Log and alert if an error occurs
+        console.log(`Couldn't delete project`, error);
+        alert(`Sorry, couldn't delete your project. Try again later`);
+    }
+}
 
 // Create one store that all components can use
 const storeInstance = createStore(
