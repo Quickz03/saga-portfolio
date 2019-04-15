@@ -26,7 +26,7 @@ VALUES
 INSERT INTO "projects"
     ("name", "description", "thumbnail", "website", "github", "date_completed", "tag_id")
 VALUES
-    ('Redux-Gallery', 'made app using react with the ability to click on a picture and flip to a description of that picture', 'picture', 'url', 'https://github.com/Quickz03/react-gallery', '3-31-19', 4 );
+    ('Redux-Gallery', 'made app using react with the ability to click on a picture and flip to a description of that picture, and like the picture', 'picture', 'url', 'https://github.com/Quickz03/react-gallery', '3-31-19', 4 );
 
 
 
