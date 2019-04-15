@@ -1,3 +1,8 @@
+----- will update when fully styled -----
+
+
+
+
 # React Redux with Sagas
 
 For this weekend challenge, you'll be building a portfolio site to showcase your work. 
