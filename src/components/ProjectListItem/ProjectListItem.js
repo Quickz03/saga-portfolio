@@ -10,11 +10,11 @@ class ProjectListItem extends Component {
             <div className="ProjectItem">
                <img src={this.props.project.thumbnail} alt={this.props.project.name} />
                     <div>
-                        <p>{this.props.project.name}</p>
-                        <p>{this.props.project.description}</p>
-                        <button href={this.props.project.github} target="_blank ">Github</button>
-                        <p>{this.props.project.website}</p>
-                        <p>{this.props.project.tags}</p>
+                        <li>{this.props.project.name}</li>
+                        <li>{this.props.project.description}</li>
+                        <a href={this.props.project.github} target="_blank ">Github</a>
+                        <li>{this.props.project.website}</li>
+                        <li>{this.props.project.tags}</li>
                     </div>
             </div>
         );

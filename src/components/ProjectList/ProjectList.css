@@ -1,0 +1,14 @@
+ul {
+list-style: none;
+}
+
+li {
+  display: inline-block;
+  padding: 15px;
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.App {
+  border: 1px;
+}

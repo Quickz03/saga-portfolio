@@ -1,11 +1,12 @@
 .App {
   text-align: center;
+  border: 1px;
 }
 
 
 .App-header {
-  background-color: #222;
-  height: 150px;
+  background-color: rgb(4, 169, 240);
+  height: 100px;
   padding: 20px;
   color: white;
 }
@@ -21,4 +22,25 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.ProjectItem {
+  align-content: center;
+  border: 1px solid black;
+  margin-bottom: 6px;
+  margin-inline-start: 180px;
+  width: 60% ;
+  background-color: tomato
+}
+
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+  padding: 15px;
+  max-width: 150px;
+  max-height: 150px;
 }
