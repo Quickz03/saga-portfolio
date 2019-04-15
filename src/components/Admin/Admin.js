@@ -6,6 +6,7 @@ import '../App/App.css';
 import AdminForm from '../AdminForm/AdminForm';
 import AdminTable from '../AdminTable/AdminTable';
 
+
 class Admin extends Component {
 
 
@@ -19,7 +20,6 @@ class Admin extends Component {
                 </nav>
                 <hr />
                 <AdminForm />
-                <hr />
                 <AdminTable />
             </div>
         );

@@ -16,9 +16,11 @@ class ProjectList extends Component {
 
         return (
             <div className="App">
-                {this.props.reduxState.projects.map( project =>
-                    <ProjectListItem key={project.id} project={project} />
-                )}
+                <ul>
+                    {this.props.reduxState.projects.map( project =>
+                        <ProjectListItem key={project.id} project={project} />
+                    )}
+                </ul>
             </div>
         );
     }
