@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import '../App/App.css';
+import Button from '@material-ui/core/Button'
 
 class AdminTable extends Component {
 
@@ -16,7 +17,8 @@ class AdminTable extends Component {
             <tr>
                 <td>{this.props.project.name}</td>
                 <td>
-                    <button onClick={this.deleteProject} value={this.props.project.id}>Delete!</button>
+                    <Button onClick={this.deleteProject} value={this.props.project.id}
+                    color="primary" variant="contained" size="small">Delete!</Button>
                 </td>
             </tr>
         );

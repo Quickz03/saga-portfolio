@@ -6,15 +6,15 @@ import Header from '../Header/Header';
 import ProjectList from '../ProjectList/ProjectList';
 import Admin from '../Admin/Admin';
 
-// import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-// import theme from './theme';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
+import theme from './theme';
 
 
 class App extends Component {
   // Renders the entire app on the DOM
   render() {
     return (
-      // <MuiThemeProvider theme={theme}>
+      <MuiThemeProvider theme={theme}>
         <Router>
           <div className="App">
             <Header />
